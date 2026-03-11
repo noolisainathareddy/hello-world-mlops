@@ -27,6 +27,6 @@ jobs:
         -   name: Save Artifcats
             uses: actions/upload-artifact@v4
             with:
-                name: mlops-artifacts
+                name: mlops-artifacts-${{matrix.pythonversion}}
                 path: artifacts
         
