@@ -1,0 +1,32 @@
+name: firs-mlops-pipleine
+on:
+    push:
+        branches: [main]
+jobs:
+    train-model:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                pythonversion: [3.11, 3.12]
+        steps:
+        -   name: clone project
+            uses: actions/checkout@v4
+        -   name: setup python
+            uses: actions/setup-python@v6
+            with:
+                python-verison: ${{ matrix.pythonversion }}
+        -   name: Upgrade PIP
+            run: python -m pip intall --upgrade pip setuptool wheel
+            
+        -   name: Install dependencies
+            run: python -m pip install -r requirements.txt
+        -   name: Train the model
+            run: |
+                python train.py
+                ls -la artifacts
+        -   name: Save Artifcats
+            uses: actions/upload-artifact@v4
+            with:
+                name: mlops-artifacts
+                path: artifacts
+        
