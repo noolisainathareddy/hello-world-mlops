@@ -1,0 +1,5 @@
+outs:
+- md5: 2c6c2312e57d8ea672f0cb591ccdd2b6
+  size: 60
+  hash: md5
+  path: mockdata.csv

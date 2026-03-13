@@ -1,0 +1,4 @@
+[core]
+    remote = testmockdata
+['remote "testmockdata"']
+    url = s3://mlops-mockdata-bucket
